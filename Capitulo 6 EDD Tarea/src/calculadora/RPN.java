@@ -15,7 +15,7 @@ public class RPN implements CalculadoraRPN {
 	 * @see calculadora.CalculadoraRPN#popPila()
 	 */
 	@Override
-	public double popPila( ) {
+	public double colocarEnLaPila() {
 		double dato_arriba = arriba.dato;
 		arriba = arriba.abajo;
 		return dato_arriba;
@@ -49,33 +49,33 @@ public class RPN implements CalculadoraRPN {
 				pushPila(numero);
 			} 
 			else if(commando.charAt(i) == '+') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(a + b);
 			}
 			else if(commando.charAt(i) == '-') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(a - b);
 			}
 			else if(commando.charAt(i) == '*') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(a * b);
 			}
 			else if(commando.charAt(i) == '/') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(a / b);
 			}
 			else if(commando.charAt(i) == '^') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(Math.pow(a, b));
 			}
 			else if(commando.charAt(i) == '%') {
-				b = popPila( );
-				a = popPila( );
+				b = colocarEnLaPila( );
+				a = colocarEnLaPila( );
 				pushPila(a%b);
 			}
 			else if(commando.charAt(i) != ' ') {
@@ -83,7 +83,7 @@ public class RPN implements CalculadoraRPN {
 			}
 		}
 		
-		double val = popPila( );
+		double val = colocarEnLaPila( );
 		
 		if(arriba != null) {
 			throw new IllegalArgumentException( );

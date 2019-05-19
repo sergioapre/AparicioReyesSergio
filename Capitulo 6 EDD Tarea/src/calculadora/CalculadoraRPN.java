@@ -4,7 +4,7 @@ public interface CalculadoraRPN {
 
 	void pushPila(double nuevo_dato);
 
-	double popPila();
+	double colocarEnLaPila();
 
 	double resultado();
 

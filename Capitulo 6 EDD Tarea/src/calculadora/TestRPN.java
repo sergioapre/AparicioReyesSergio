@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class TestRPN {
 	/* metodo main */
 	public static void main(String[] args) {
-		// TODO ApÈndice de mÈtodo generado autom·ticamente
+		// TODO Ap√©ndice de m√©todo generado autom√°ticamente
 		
 		while(true) {
-			@SuppressWarnings("resource")
 			Scanner in = new Scanner(System.in);
 			System.out.println("Introduce expresion Postfija o teclea \"fin\".");
 			String linea = in.nextLine( );

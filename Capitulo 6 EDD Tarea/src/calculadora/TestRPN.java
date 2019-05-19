@@ -8,6 +8,7 @@ public class TestRPN {
 		// TODO Apéndice de método generado automáticamente
 		
 		while(true) {
+			@SuppressWarnings("resource")
 			Scanner in = new Scanner(System.in);
 			System.out.println("Introduce expresion Postfija o teclea \"fin\".");
 			String linea = in.nextLine( );

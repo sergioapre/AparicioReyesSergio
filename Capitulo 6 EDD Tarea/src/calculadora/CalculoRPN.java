@@ -1,27 +1,31 @@
 package calculadora;
 
-public class RPN implements CalculadoraRPN {
+public class CalculoRPN implements CalculadoraRPN {
 	
 	/* (sin Javadoc)
 	 * @see calculadora.CalculadoraRPN#pushPila(double)
 	 */
 	@Override
-	public void pushPila(double nuevo_dato) {
+	// 3ª refactorización, se cambia el nombre del método popPila
+	//por otro mas entendible: "extraerDeLaPila"
+	public void extraerDeLaPila(double nuevo_dato) {
 		NodoPila nuevo_nodo = new NodoPila(nuevo_dato, arriba);
 			arriba = nuevo_nodo;
 	}
 	
 	/* (sin Javadoc)
-	 * @see calculadora.CalculadoraRPN#popPila()
+	 * @see calculadora.CalculadoraRPN#colocarEnLaPila()
 	 */
 	@Override
+	//3ª refactorización, se cambia el nombre del método popPila
+	//por otro mas entendible: "colocarEnLaPila"
 	public double colocarEnLaPila() {
 		double dato_arriba = arriba.dato;
 		arriba = arriba.abajo;
 		return dato_arriba;
 	}
 	
-	public RPN(String commando) {
+	public CalculoRPN(String commando) {
 		arriba = null;
 		this.commando = commando;
 	}
@@ -46,37 +50,37 @@ public class RPN implements CalculadoraRPN {
 				}
 				//convertir a double y añadir a la pila
 				numero = Double.parseDouble(temp);
-				pushPila(numero);
+				extraerDeLaPila(numero);
 			} 
 			else if(commando.charAt(i) == '+') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(a + b);
+				extraerDeLaPila(a + b);
 			}
 			else if(commando.charAt(i) == '-') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(a - b);
+				extraerDeLaPila(a - b);
 			}
 			else if(commando.charAt(i) == '*') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(a * b);
+				extraerDeLaPila(a * b);
 			}
 			else if(commando.charAt(i) == '/') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(a / b);
+				extraerDeLaPila(a / b);
 			}
 			else if(commando.charAt(i) == '^') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(Math.pow(a, b));
+				extraerDeLaPila(Math.pow(a, b));
 			}
 			else if(commando.charAt(i) == '%') {
 				b = colocarEnLaPila( );
 				a = colocarEnLaPila( );
-				pushPila(a%b);
+				extraerDeLaPila(a % b);
 			}
 			else if(commando.charAt(i) != ' ') {
 				throw new IllegalArgumentException( );

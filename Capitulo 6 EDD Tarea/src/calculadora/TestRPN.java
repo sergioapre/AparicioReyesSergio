@@ -19,7 +19,7 @@ public class TestRPN {
 					break;
 			}
 			else {
-				CalculadoraRPN calc = new RPN(linea);
+				CalculadoraRPN calc = new CalculoRPN(linea);
 				System.out.printf("El resultado es %f\n", calc.resultado());
 			}
 		}

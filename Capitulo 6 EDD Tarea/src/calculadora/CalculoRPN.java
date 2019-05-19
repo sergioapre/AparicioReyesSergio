@@ -6,7 +6,7 @@ public class CalculoRPN implements CalculadoraRPN {
 	 * @see calculadora.CalculadoraRPN#pushPila(double)
 	 */
 	@Override
-	// 3ª refactorización, se cambia el nombre del método popPila
+	// 4ª refactorización, se cambia el nombre del método popPila
 	//por otro mas entendible: "extraerDeLaPila"
 	public void extraerDeLaPila(double nuevo_dato) {
 		NodoPila nuevo_nodo = new NodoPila(nuevo_dato, arriba);

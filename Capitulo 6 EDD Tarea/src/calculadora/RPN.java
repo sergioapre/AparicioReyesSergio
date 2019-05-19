@@ -1,12 +1,20 @@
 package calculadora;
 
-public class RPN {
+public class RPN implements CalculadoraRPN {
 	
+	/* (sin Javadoc)
+	 * @see calculadora.CalculadoraRPN#pushPila(double)
+	 */
+	@Override
 	public void pushPila(double nuevo_dato) {
 		NodoPila nuevo_nodo = new NodoPila(nuevo_dato, arriba);
 			arriba = nuevo_nodo;
 	}
 	
+	/* (sin Javadoc)
+	 * @see calculadora.CalculadoraRPN#popPila()
+	 */
+	@Override
 	public double popPila( ) {
 		double dato_arriba = arriba.dato;
 		arriba = arriba.abajo;
@@ -18,6 +26,10 @@ public class RPN {
 		this.commando = commando;
 	}
 	
+	/* (sin Javadoc)
+	 * @see calculadora.CalculadoraRPN#resultado()
+	 */
+	@Override
 	public double resultado( ) {
 		double a, b;
 		int j;

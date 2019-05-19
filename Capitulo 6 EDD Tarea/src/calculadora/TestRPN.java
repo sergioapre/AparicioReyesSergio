@@ -8,6 +8,8 @@ public class TestRPN {
 		// TODO Apéndice de método generado automáticamente
 		
 		while(true) {
+			// 1ª Refactorización, se añade la siguiente línea porque "in"
+			// nunca se cierra.
 			@SuppressWarnings("resource")
 			Scanner in = new Scanner(System.in);
 			System.out.println("Introduce expresion Postfija o teclea \"fin\".");
@@ -17,7 +19,7 @@ public class TestRPN {
 					break;
 			}
 			else {
-				RPN calc = new RPN(linea);
+				CalculadoraRPN calc = new RPN(linea);
 				System.out.printf("El resultado es %f\n", calc.resultado());
 			}
 		}
